@@ -42,6 +42,14 @@ h1, h2, h3 { font-weight: 800; }
   justify-content: space-between;
   padding: 24px 6%;
   background: var(--bg-black);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: padding 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 14px 6%;
 }
 
 .logo {
@@ -55,7 +63,15 @@ h1, h2, h3 { font-weight: 800; }
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 1px;
+  transition: width 0.3s ease, height 0.3s ease;
 }
+
+.navbar.scrolled .logo {
+  width: 36px;
+  height: 36px;
+  font-size: 12px;
+}
+
 .logo:hover { text-decoration: none; border-color: var(--blue-light); }
 
 .navbar nav a {
@@ -64,7 +80,14 @@ h1, h2, h3 { font-weight: 800; }
   font-size: 14px;
   letter-spacing: 1px;
   margin-left: 36px;
+  transition: font-size 0.3s ease, margin-left 0.3s ease;
 }
+
+.navbar.scrolled nav a {
+  font-size: 12px;
+  margin-left: 24px;
+}
+
 .navbar nav a.active,
 .navbar nav a:hover { color: var(--blue-light); text-decoration: none; }
 
@@ -80,8 +103,15 @@ h1, h2, h3 { font-weight: 800; }
   align-items: center;
   justify-content: center;
   margin-left: 24px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
 }
+
+.navbar.scrolled .theme-toggle {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
 .theme-toggle:hover { border-color: var(--blue-light); transform: scale(1.06); }
 
 /* Hero */
@@ -502,6 +532,7 @@ h1, h2, h3 { font-weight: 800; }
 @media (max-width: 640px) {
   .navbar { flex-direction: column; gap: 16px; }
   .navbar nav a { margin: 0 12px; }
+  .navbar.scrolled nav a { margin: 0 8px; }
   .hero { text-align: center; justify-content: center; }
   .hero-text { text-align: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
